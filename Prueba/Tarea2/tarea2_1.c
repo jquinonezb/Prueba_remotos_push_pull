@@ -283,106 +283,136 @@ printf("Ahora introducirá el estado donde nació \n");
 		estado_nuevo[g] = estado[g];
 	}
 	/*ENCONTRAR LA ABREVIACIÓN DEL ESTADO*/
-	switch(estado_nuevo)
+	if(estado_nuevo == 'AGUASCALIENTES')
 	{
-		case 'AGUASCALIENTES':
 		estado_le[TAM_MD] = {65,83};
-		break;
-		case 'BAJACALIFORNIA':
+	}	
+	else if(estado_nuevo == 'BAJACALIFORNIA')
+	{
 		estado_le[TAM_MD] = {66,67};
-		break;
-		case 'BAJACALIFORNASUR':
+	}
+	else if(estado_nuevo == 'BAJACALIFORNASUR')
+	{
 		estado_le[TAM_MD] = {66,83};
-		break;
-		case 'CAMPECHE':
+	}	
+	else if(estado_nuevo =='CAMPECHE')
+	{
 		estado_le[TAM_MD] = {67,67};
-		break;
-		case 'COAHUILA':
+	}
+	else if(estado_nuevo =='COAHUILA')
+	{
 		estado_le[TAM_MD] = {67,76};
-		break;
-		case 'COLIMA':
+	}	
+	else if(estado_nuevo =='COLIMA')
+	{
 		estado_le[TAM_MD] = {67,77};
-		break;
-		case 'CHIAPAS':
+	}
+	else if(estado_nuevo == 'CHIAPAS')
+	{
 		estado_le[TAM_MD] = {67,83};
-		break;
-		case 'CHIHUAHUA':
+	}	
+	else if(estado_nuevo =='CHIHUAHUA')
+	{
 		estado_le[TAM_MD] = {65,72};
-		break;
-		case 'DISTRITOFEDERAL':
+	}	
+	else if(estado_nuevo =="DISTRITOFEDERAL")
+	{
 		estado_le[TAM_MD] = {68,70};
-		break;
-		case 'DURANGO':
+	}
+	else if(estado_nuevo =='DURANGO')
+	{
 		estado_le[TAM_MD] = {68,71};
-		break;
-		case 'GUANAJUATO':
+	}	
+	else if(estado_nuevo =='GUANAJUATO')
+	{
 		estado_le[TAM_MD] = {71,84};
-		break;
-		case 'GUERRERO':
+	}	
+	else if(estado_nuevo =='GUERRERO')
+	{
 		estado_le[TAM_MD] = {71,82};
-		break;
-		case 'HIDALGO':
+	}	
+	else if(estado_nuevo =='HIDALGO')
+	{
 		estado_le[TAM_MD] = {72,71};
-		break;
-		case 'JALISCO':
+	}	
+	else if(estado_nuevo =='JALISCO')
+	{
 		estado_le[TAM_MD] = {74,67};
-		break;
-		case 'MEXICO':
+	}	
+	else if(estado_nuevo == 'MEXICO')
+	{
 		estado_le[TAM_MD] = {77,67};
-		break;
-		case 'MICHOACAN':
+	}	
+	else if(estado_nuevo =='MICHOACAN')
+	{
 		estado_le[TAM_MD] = {77,78};
-		break;
-		case 'MORELOS':
+	}
+	else if(estado_nuevo == 'MORELOS')	
+	{	
 		estado_le[TAM_MD] = {77,83};
-		break;
-		case 'NAYARIT':
+	}
+	else if(estado_nuevo == 'NAYARIT')
+	{
 		estado_le[TAM_MD] = {78,84};
-		break;
-		case 'NUEVOLEON':
+	}
+	else if(estado_nuevo == 'NUEVOLEON')
+	{
 		estado_le[TAM_MD] = {78,76};
-		break;
-		case 'OAXACA':
+	}
+	else if(estado_nuevo == 'OAXACA')
+	{
 		estado_le[TAM_MD] = {79,67};
-		break;
-		case 'PUEBLA':
+	}
+	else if(estado_nuevo == 'PUEBLA')
+	{
 		estado_le[TAM_MD] = {80,76};
-		break;
-		case 'QUERETARO':
+	}
+	else if(estado_nuevo == 'QUERETARO')
+	{
 		estado_le[TAM_MD] = {81,84};
-		break;
-		case 'QUINTANAROO':
+	}
+	else if(estado_nuevo == 'QUINTANAROO')
+	{
 		estado_le[TAM_MD] = {81,82};
-		break;
-		case 'SANLUISPOTOSI':
+	}
+	else if(estado_nuevo == 'SANLUISPOTOSI')
+	{
 		estado_le[TAM_MD] = {83,80};
-		break;
-		case 'SINALOA':
+	}
+	else if(estado_nuevo == 'SINALOA')	
+	{
 		estado_le[TAM_MD] = {83,76};
-		break;
-		case 'SONORA':
+	}
+	else if(estado_nuevo == 'SONORA')
+	{
 		estado_le[TAM_MD] = {83,82};
-		break;
-		case 'TABASCO':
+	}
+	else if(estado_nuevo == 'TABASCO')
+	{
 		estado_le[TAM_MD] = {84,67};
-		break;
-		case 'TAMAULIPAS':
+	}
+	else if(estado_nuevo == 'TAMAULIPAS)
+	{
 		estado_le[TAM_MD] = {84,83};
-		break;
-		case 'TLAXCALA':
+	}
+	else if(estado_nuevo == 'TLAXCALA')		
+	{
 		estado_le[TAM_MD] = {84,76};
-		break;
-		case 'VERACRUZ':
+	}
+	else if(estado_nuevo == 'VERACRUZ')		
+	{
 		estado_le[TAM_MD] = {86,90};
-		break;
-		case 'YUCATAN':
+	}
+	else if(estado_nuevo == 'YUCATAN')
+	{
 		estado_le[TAM_MD] = {88,78};
-		break;
-		case 'ZACATECAS':
+	}
+	else if(estado_nuevo == 'ZACATECAS')
+	{
 		estado_le[TAM_MD] = {90,83};
-		break;
-		default:
-			printf("No hubo coincidencias \n");
+	}
+	else{
+		printf("No existe tu datos \n");
 	}
 char CURP[14]; 
 }
