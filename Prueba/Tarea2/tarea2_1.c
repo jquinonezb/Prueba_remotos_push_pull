@@ -69,12 +69,14 @@ void main (void)
 	 }
   	} while(c==0);
 
+	
+	char d = 0;
  do
  {
 	printf("Por favor introduce tu segundo nombre en mayúsculas: \n");
  	scanf("%s", nom2);
 	
-	int cont2 = 0, c=0;
+	int cont2 = 0;
 	for(int a = 0; a<=TAM_MAX; a++)
 	{
 		if (nom2[a]>=65 && nom2[a]<=90)
@@ -89,11 +91,11 @@ void main (void)
 		}
 		else
 		{
-		 c++;
+		 d++;
 		 break;
 		}
 	 }
-  	} while(c==0);
+  	} while(d==0);
 }
 	printf("Por favor introduce tu apellido paterno en mayúsculas: \n");
 	scanf("%s", ap_pat);
