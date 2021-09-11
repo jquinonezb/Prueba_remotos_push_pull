@@ -17,6 +17,7 @@ void main (void)
 	do
 	{
  /*CONOCER EL NUMERO DE CARACTERES QUE TIENEN LOS NOMBRES Y VERIFICAR QUE ESTÉ EN MAYÚSUCULAS*/
+/*SI TIENE 1 NOMBRE*/
 	printf("Por favor introduce tu primer nombre en mayúsculas:\n");
 	scanf("%s", nom1);
 	int cont = 0;
@@ -41,6 +42,7 @@ void main (void)
   	}
   while(c==0);
  }
+/* SI TIENE 2 NOMBRES*/
   else
   {
 	do
@@ -97,9 +99,59 @@ void main (void)
 	 }
   	} while(d==0);
 }
+	/*APELLIDO PATERNO*/
+	char e = 0;
+	do
+ {
 	printf("Por favor introduce tu apellido paterno en mayúsculas: \n");
 	scanf("%s", ap_pat);
+	int cont3 = 0;
+	for(int a = 0; a<=TAM_MAX; a++)
+	{
+		if (ap_pat[a]>=65 && ap_pat[a]<=90)
+		{
+			cont3++;
+			printf("%d \n", cont3);
+		}
+		else if(ap_pat[a]>= 97 && ap_pat[a]<= 122 )
+		{		
+		 printf("Tu apellido no está completamente en mayúsculas\n");
+		 break;
+		}
+		else
+		{
+		 e++;
+		 break;
+		}
+	 }
+  	} while(e==0);
+	
+	/*APELLIDO MATERNO*/
+	char f = 0;
+	do
+ {
         printf("Por Favor introduce tu apellido materno en mayúsculas: \n");
-	scanf("%s", ap_mat);	
+	scanf("%s", ap_mat);
+		int cont4 = 0;
+	for(int a = 0; a<=TAM_MAX; a++)
+	{
+		if (ap_mat[a]>=65 && ap_mat[a]<=90)
+		{
+			cont4++;
+			printf("%d \n", cont4);
+		}
+		else if(ap_mat[a]>= 97 && ap_mat[a]<= 122 )
+		{		
+		 printf("Tu apellido no está completamente en mayúsculas\n");
+		 break;
+		}
+		else
+		{
+		 f++;
+		 break;
+		}
+	 }
+  	} while(f==0);
+
 
 }
