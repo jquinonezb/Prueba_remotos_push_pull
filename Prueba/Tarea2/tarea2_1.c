@@ -250,18 +250,19 @@ do
 }while(e==0);
 /*ESTADO DONDE NACIÓ*/
 	char f = 0;
+	int cont5 = 0;
 printf("Ahora introducirá el estado donde nació \n");
 	do
 	{
 		printf("Introduzca en mayúsculas el estado donde nació (omita los espacios y acentos) \n");
 		scanf("%s", estado);
-		int cont5 = 0;
+		cont5 = 0;
 		for(int a = 0; a<=TAM_MAX; a++)
 		{
 			if (estado[a]>=65 && estado[a]<=90)
 			{
 			cont5++;
-			printf("%d \n", cont4);
+			printf("%d \n", cont5);
 			}
 			else if(estado[a]>= 97 && estado[a]<= 122)
 			{		
@@ -383,5 +384,5 @@ printf("Ahora introducirá el estado donde nació \n");
 		default:
 			printf("No hubo coincidencias \n");
 	}
-char CURP[14] 
+char CURP[14]; 
 }
