@@ -552,5 +552,5 @@ CURP[12]= estado_le[1];
 		}
 	}
 	
-printf("%s \n",CURP);
+printf("Su CURP es: %s \n ",CURP);
 }
