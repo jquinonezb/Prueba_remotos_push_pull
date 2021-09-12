@@ -45,8 +45,8 @@ void main (void)
   	}
   while(c==0);
  }
- printf("%s \n",nom1);
- printf("%d \n", cont);
+ /*printf("%s \n",nom1);
+ printf("%d \n", cont);*/
  
 /* SI TIENE 2 NOMBRES*/
   if(num_nom==2)
@@ -78,8 +78,8 @@ void main (void)
 		}
 	 }
   	} while(c==0);
-printf("%s \n",nom1);
- printf("%d \n", cont1);
+/*printf("%s \n",nom1);
+ printf("%d \n", cont1);*/
 	
 	c = 0;
 	
@@ -109,8 +109,8 @@ printf("%s \n",nom1);
 	 }
   	} while(c==0);
 }
- printf("%s \n",nom2);
- printf("%d \n", cont2);
+ /*printf("%s \n",nom2);
+ printf("%d \n", cont2);*/
 	/*APELLIDO PATERNO*/
 	c = 0;
 	int cont3 = 0;
@@ -139,8 +139,8 @@ printf("%s \n",nom1);
 		}
 	 }
   	} while(c==0);
-	printf("%s \n",ap_pat);
- printf("%d \n", cont3);
+	/*printf("%s \n",ap_pat);
+ printf("%d \n", cont3);*/
 	
 	/*APELLIDO MATERNO*/
 	c = 0;
@@ -170,8 +170,8 @@ printf("%s \n",nom1);
 		}
 	 }
   	} while(c==0);
-	printf("%s \n",ap_mat);
- printf("%d \n", cont4);
+	/*printf("%s \n",ap_mat);
+ printf("%d \n", cont4);*/
 /* FECHA DE NACIMIENTO*/
 	/*DIA DE NACIMIENTO*/
 	printf("Ahora ingrese su fecha de nacimiento (el formato será dd/mm/aaaa)\n");
@@ -180,12 +180,12 @@ do
 {
 	printf("Ingrese su día de nacimiento: \n");
 	scanf("%s", dia);
-	    if (dia[0] >= 48 && dia[0] <= 50 && dia[1] >= 48 && dia[1] <= 57)
+	    if (dia[0]==48 || dia[0]==50 || dia[0]==49 && dia[1]>=48 && dia[1]<= 57)
 		       {
 			printf("Día correcto\n");
 	      		d++;
 		       }
-	     else if(dia[0] == 51 && dia[1]<=49)
+	     else if(dia[0]==51 && dia[1]==49 || dia[1]==48)
 	       {
 		printf("Día correctos\n");
 	      	d++;
@@ -195,8 +195,10 @@ do
 
 	     }
 }while(d==0);
+/*printf("%c \n", dia[0]);*/
 /*MES DE NACIMIENTO*/
-	d = 0;
+	
+d = 0;
 do
 {
 	printf("Ingrese su mes de nacimiento: \n");
@@ -337,7 +339,6 @@ do
 		estado_le[1] = 78;
 		break;
 	case 17:
-
 		estado_le[0] = 77;
 		estado_le[1] = 83;	
 		break;	
@@ -402,12 +403,14 @@ do
 		estado_le[1] = 83;
 		break;
 	}
-	printf("%s \n", estado_le);
+	/*printf("%s \n", estado_le);
 	printf("%d \n",cont);
+	printf("%d \n",cont1);
 	printf("%d \n",cont2);
 	printf("%d \n",cont3);
 	printf("%d \n",cont4);
-	printf("%d \n", jom);
+	printf("%d \n", jom);*/
+	printf("%c \n",dia[0]);
 /*CURP*/	
 char CURP[16]; 
 CURP[0]= ap_pat[0];
@@ -517,5 +520,5 @@ CURP[12]= estado_le[1];
                 }
 		}
 	
-printf("%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c \n",CURP[0],CURP[1],CURP[2],CURP[3],CURP[4],CURP[5],CURP[6],CURP[7],CURP[8],CURP[9],CURP[10],CURP[11],CURP[12],CURP[13],CURP[14],CURP[15]);
+printf("%c %c %c %c %c %c %c %c %c %c %c %c %c %c %c %c \n",CURP[0],CURP[1],CURP[2],CURP[3],CURP[4],CURP[5],CURP[6],CURP[7],CURP[8],CURP[9],CURP[10],CURP[11],CURP[12],CURP[13],CURP[14],CURP[15]);
 }
