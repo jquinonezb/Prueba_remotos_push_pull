@@ -7,12 +7,11 @@
 
 void main (void)
 {
-	int num_nom=0;
+	int num_nom=0, jom=0;
 	char nom1[TAM_MAX], nom2[TAM_MAX], c = 0;
 	char ap_pat[TAM_MAX], ap_mat[TAM_MAX], dia[TAM_MD], mes[TAM_MD];
-	char year[TAM_AN], sexo[TAM_SE], estado[TAM_MAX], estado_le[2];
-  	char numero=165;
-	printf("%c\n",numero);
+	char year[TAM_AN], sexo[TAM_SE], estado_le[TAM_MD];
+	int cont = 0;
 	printf("Bienvenido al sistema de captura de datos para CURP\n");
 	printf("¿Cuántos nombres tienes? (1 o 2):\n");
 	scanf("%d", &num_nom);
@@ -24,7 +23,7 @@ void main (void)
 /*SI TIENE 1 NOMBRE*/
 	printf("Por favor introduce tu primer nombre en mayúsculas:\n");
 	scanf("%s", nom1);
-	int cont = 0;
+	cont = 0;
 	for(int a = 0; a<=TAM_MAX; a++)
 	{
 		if (nom1[a]>=65 && nom1[a]<=90)
@@ -46,15 +45,20 @@ void main (void)
   	}
   while(c==0);
  }
+ printf("%s \n",nom1);
+ 
 /* SI TIENE 2 NOMBRES*/
   else
   {
+	printf("Tu primer nombre es Jose o María (1 sí, 2 no)?\n");
+	scanf("%d", &jom);
+	int cont = 0;
 	do
 	{
  /*CONOCER EL NUMERO DE CARACTERES QUE TIENEN LOS NOMBRES Y VERIFICAR QUE ESTÉ EN MAYÚSUCULAS*/
 	printf("Por favor introduce tu primer nombre en mayúsculas:\n");
 	scanf("%s", nom1);
-	int cont = 0;
+	cont = 0;
 	for(int a = 0; a<=TAM_MAX; a++)
 	{
 		if (nom1[a]>=65 && nom1[a]<=90)
@@ -77,12 +81,13 @@ void main (void)
 
 	
 	c = 0;
+	int cont2 = 0;
  do
  {
 	printf("Por favor introduce tu segundo nombre en mayúsculas: \n");
  	scanf("%s", nom2);
 	
-	int cont2 = 0;
+	cont2 = 0;
 	for(int a = 0; a<=TAM_MAX; a++)
 	{
 		if (nom2[a]>=65 && nom2[a]<=90)
@@ -105,12 +110,13 @@ void main (void)
 }
 	/*APELLIDO PATERNO*/
 	c = 0;
+	int cont3 = 0;
 	do
  {
 	printf("Por favor introduce tu apellido paterno en mayúsculas: \n");
 	printf("Si tu apellido tiene eñe por favor sustituyela con una X\n");
 	scanf("%s", ap_pat);
-	int cont3 = 0;
+	cont3 = 0;
 	for(int a = 0; a<=TAM_MAX; a++)
 	{
 		if (ap_pat[a]>=65 && ap_pat[a]<=90)
@@ -133,12 +139,13 @@ void main (void)
 	
 	/*APELLIDO MATERNO*/
 	c = 0;
+	int cont4 = 0;
 	do
  {
         printf("Por Favor introduce tu apellido materno en mayúsculas: \n");
 	printf("Si tu apellido tiene eñe por favor sustituyela con una X\n");
 	scanf("%s", ap_mat);
-		int cont4 = 0;
+	cont4 = 0;
 	for(int a = 0; a<=TAM_MAX; a++)
 	{
 		if (ap_mat[a]>=65 && ap_mat[a]<=90)
@@ -249,9 +256,7 @@ do
 	}
 }while(e==0);
 /*ESTADO DONDE NACIÓ*/
-	char f = 0;
-	int cont5 = 0;
-printf("Ahora introducirá el estado donde nació \n");
+/*printf("Ahora introducirá el estado donde nació \n");
 	do
 	{
 		printf("Introduzca en mayúsculas el estado donde nació (omita los espacios y acentos) \n");
@@ -262,7 +267,7 @@ printf("Ahora introducirá el estado donde nació \n");
 			if (estado[a]>=65 && estado[a]<=90)
 			{
 			cont5++;
-			/*printf("%d \n", cont5);*/
+			printf("%d \n", cont5);
 			}
 			else if(estado[a]>= 97 && estado[a]<= 122)
 			{		
@@ -275,52 +280,20 @@ printf("Ahora introducirá el estado donde nació \n");
 		 	break;
 			}
 		}
-	}while(f==0);
-/*NUEVA VARIABLE CON EL NOMBRE DEL ESTADO*/
+	}while(f==0);*/
+/*NUEVA VARIABLE CON EL NOMBRE DEL ESTADO
 	char estado_nuevo[cont5];
 	for(int g = 0; g < cont5; g++)
 	{
 		estado_nuevo[g] = estado[g];
 	}
-printf("%s \n", estado_nuevo);
+printf("%s \n", estado_nuevo);*/
 
-	/*ENCONTRAR LA ABREVIACIÓN DEL ESTADO*/
+/*ENCONTRAR LA ABREVIACIÓN DEL ESTADO*/
 	int choice = 0;
-	printf("A continuación se mostrará una lista de los estados de la República, elige el tuyo \n
-"1 AGUASCALIENTES\n"
-"2 BAJACALIFORNIA\n"
-"3 BAJACALIFORNASUR\n"
-"4 CAMPECHE\n"
-"5 COAHUILA\n"
-"6 COLIMA\n"
-"7 CHIAPAS\n"
-"8 CHIHUAHUA\n"
-"9 DISTRITOFEDERAL\n"
-"10 DURANGO\n"
-"11 GUANAJUATO\n"
-"12 GUERRERO\n"
-"13 HIDALGO\n"
-"14 JALISCO\n"
-"15 MEXICO\n"
-"16 MICHOACAN\n"
-"17 MORELOS\n"
-"18 NAYARIT\n"
-"19 NUEVOLEON\n"
-"20 OAXACA\n"
-"21 PUEBLA\n"
-"22 QUERETARO\n"
-"23 QUINTANAROO\n"
-"24 SANLUISPOTOSI\n"
-"25 SINALOA\n"
-"26 SONORA\n"
-"27 TABASCO\n"
-"28 TAMAULIPAS\n"
-"29 TLAXCALA\n"
-"30 VERACRUZ\n"
-"31 YUCATAN\n"
-"32 ZACATECAS\n");
+	printf("A continuación se mostrará una lista de los estados de la República, elige el tuyo \n1 AGUASCALIENTES\n2 BAJACALIFORNIA\n3 BAJACALIFORNASUR\n4 CAMPECHE\n5 COAHUILA\n6 COLIMA\n7 CHIAPAS\n8 CHIHUAHUA\n9 DISTRITOFEDERAL\n10 DURANGO\n11 GUANAJUATO\n12 GUERRERO\n13 HIDALGO\n14 JALISCO\n15 MEXICO\n16 MICHOACAN\n17 MORELOS\n18 NAYARIT\n19 NUEVOLEON\n20 OAXACA\n21 PUEBLA\n22 QUERETARO\n23 QUINTANAROO\n24 SANLUISPOTOSI\n25 SINALOA\n26 SONORA\n27 TABASCO\n28 TAMAULIPAS\n29 TLAXCALA\n30 VERACRUZ\n31 YUCATAN\n32 ZACATECAS\n");
 	
-	scanf("%d", choice);
+	scanf("%d", &choice);
 	switch(choice)
 	{
 	case 1:
@@ -455,6 +428,97 @@ printf("%s \n", estado_nuevo);
 		estado_le[1] = 83;
 		break;
 	}
-	printf("%s", estado_le);
-char CURP[14]; 
+	printf("%s \n", estado_le);
+/*CURP*/	
+char CURP[16]; 
+CURP[0]= ap_pat[0];
+for (int a=1; a<cont3;a++)
+	{
+		if(ap_pat[a] == 65 || ap_pat[a]==69 || ap_pat[a]==73 || ap_pat[a]==79 || ap_pat[a]==85)
+		{
+			CURP[1] = ap_pat[a];
+			break;
+		}
+	}
+CURP[2]= ap_mat[0];
+	if (num_nom == 1)
+	{
+		CURP[3]= nom1[0];
+	}
+	else if (num_nom == 2)
+	{
+		if(jom == 1)
+		{
+		CURP[3]=nom2[0];
+		}
+		else
+		{
+		CURP[3]=nom1[0];
+		}
+	}
+CURP[4]= year[2];
+CURP[5]= year[3];
+CURP[6]= mes[0];
+CURP[7]= mes[1];
+CURP[8]= dia[0];
+CURP[9]= dia[1];
+CURP[10]= sexo[0];
+CURP[11]= estado_le[0];
+CURP[12]= estado_le[1];
+	for (int a=1; a<cont3;a++)
+        {	
+	if(ap_pat[a] != 65 || ap_pat[a]!=69 || ap_pat[a]!=73 || ap_pat[a]!=79 || ap_pat[a]!=85)
+		{
+			CURP[13] = ap_pat[a];
+			break;
+		}
+	}
+
+	for (int a=1; a<cont4;a++)
+        {	
+	if(ap_mat[a] != 65 || ap_mat[a]!=69 || ap_mat[a]!=73 || ap_mat[a]!=79 || ap_mat[a]!=85)
+		{
+			CURP[14] = ap_mat[a];
+			break;
+		}
+	}
+
+	if (num_nom == 1)
+	{
+		for(int a=0;a<cont;a++)
+		{
+		if(nom1[a] != 65 || nom1[a]!=69 || nom1[a]!=73 || nom1[a]!=79 || nom1[a]!=85)
+			{
+			CURP[15] = nom1[a];
+			break;
+			}
+		}
+	
+	}
+	else if (num_nom == 2)
+	{
+		if(jom == 1)
+		{
+			for(int a=0;a<cont;a++)
+                	{
+                	if(nom2[a] != 65 || nom2[a]!=69 || nom2[a]!=73 || nom2[a]!=79 || nom2[a]!=85)
+                        	{
+                        	CURP[15] = nom2[a];
+                        	break;
+                        	}
+                	}
+		}
+		else
+		{
+			for(int a=0;a<cont;a++)
+                {
+                if(nom1[a] != 65 || nom1[a]!=69 || nom1[a]!=73 || nom1[a]!=79 || nom1[a]!=85)
+                        {
+                        CURP[15] = nom1[a];
+                        break;
+                        }
+                }
+		}
+	}
+printf("%s \n",CURP);
 }
