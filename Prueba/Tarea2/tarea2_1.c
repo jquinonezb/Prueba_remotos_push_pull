@@ -11,14 +11,14 @@ void main (void)
 	char nom1[TAM_MAX], nom2[TAM_MAX], c = 0;
 	char ap_pat[TAM_MAX], ap_mat[TAM_MAX], dia[TAM_MD], mes[TAM_MD];
 	char year[TAM_AN], sexo[TAM_SE], estado_le[TAM_MD];
-	int cont = 0;
+	int cont = 0, cont2=0;
 	printf("Bienvenido al sistema de captura de datos para CURP\n");
 	printf("¿Cuántos nombres tienes? (1 o 2):\n");
 	scanf("%d", &num_nom);
  if (num_nom == 1)
  {
 	do
-	{
+ {
  /*CONOCER EL NUMERO DE CARACTERES QUE TIENEN LOS NOMBRES Y VERIFICAR QUE ESTÉ EN MAYÚSUCULAS*/
 /*SI TIENE 1 NOMBRE*/
 	printf("Por favor introduce tu primer nombre en mayúsculas:\n");
@@ -46,9 +46,10 @@ void main (void)
   while(c==0);
  }
  printf("%s \n",nom1);
+ printf("%d \n", cont);
  
 /* SI TIENE 2 NOMBRES*/
-  else
+  if(num_nom==2)
   {
 	printf("Tu primer nombre es Jose o María (1 sí, 2 no)?\n");
 	scanf("%d", &jom);
@@ -78,10 +79,11 @@ void main (void)
 		}
 	 }
   	} while(c==0);
-
+printf("%s \n",nom1);
+ printf("%d \n", cont);
 	
 	c = 0;
-	int cont2 = 0;
+	
  do
  {
 	printf("Por favor introduce tu segundo nombre en mayúsculas: \n");
@@ -108,6 +110,8 @@ void main (void)
 	 }
   	} while(c==0);
 }
+ printf("%s \n",nom2);
+ printf("%d \n", cont2);
 	/*APELLIDO PATERNO*/
 	c = 0;
 	int cont3 = 0;
@@ -136,6 +140,8 @@ void main (void)
 		}
 	 }
   	} while(c==0);
+	printf("%s \n",ap_pat);
+ printf("%d \n", cont3);
 	
 	/*APELLIDO MATERNO*/
 	c = 0;
@@ -165,6 +171,8 @@ void main (void)
 		}
 	 }
   	} while(c==0);
+	printf("%s \n",ap_mat);
+ printf("%d \n", cont4);
 /* FECHA DE NACIMIENTO*/
 	/*DIA DE NACIMIENTO*/
 	printf("Ahora ingrese su fecha de nacimiento (el formato será dd/mm/aaaa)\n");
@@ -429,6 +437,10 @@ printf("%s \n", estado_nuevo);*/
 		break;
 	}
 	printf("%s \n", estado_le);
+	printf("%d \n",cont);
+	printf("%d \n",cont2);
+	printf("%d \n",cont3);
+	printf("%d \n",cont4);
 /*CURP*/	
 char CURP[16]; 
 CURP[0]= ap_pat[0];
@@ -467,58 +479,78 @@ CURP[11]= estado_le[0];
 CURP[12]= estado_le[1];
 	for (int a=1; a<cont3;a++)
         {	
-	if(ap_pat[a] != 65 || ap_pat[a]!=69 || ap_pat[a]!=73 || ap_pat[a]!=79 || ap_pat[a]!=85)
+	if(ap_pat[a] == 65 || ap_pat[a]== 69 || ap_pat[a]== 73 || ap_pat[a]== 79 || ap_pat[a]== 85)
 		{
-			CURP[13] = ap_pat[a];
+			
+		}
+		else
+		{
+		    CURP[13] = ap_pat[a];
+			printf("%c \n", CURP[13]);
 			break;
 		}
 	}
 
 	for (int a=1; a<cont4;a++)
         {	
-	if(ap_mat[a] != 65 || ap_mat[a]!=69 || ap_mat[a]!=73 || ap_mat[a]!=79 || ap_mat[a]!=85)
+	if(ap_mat[a] == 65 || ap_mat[a]==69 || ap_mat[a]==73 || ap_mat[a]==79 || ap_mat[a]==85)
 		{
-			CURP[14] = ap_mat[a];
-			break;
 		}
+	else
+	    {
+	        CURP[14] = ap_mat[a];
+			printf("%c \n", CURP[14]);
+			break;
+	    }
 	}
 
 	if (num_nom == 1)
 	{
-		for(int a=0;a<cont;a++)
+		for(int a=1;a<cont;a++)
 		{
-		if(nom1[a] != 65 || nom1[a]!=69 || nom1[a]!=73 || nom1[a]!=79 || nom1[a]!=85)
+		if(nom1[a] == 65 || nom1[a]==69 || nom1[a]==73 || nom1[a]==79 || nom1[a]==85)
 			{
-			CURP[15] = nom1[a];
-			break;
 			}
+		else
+		    {
+		    CURP[15] = nom1[a];
+			printf("%c \n", CURP[15]);
+			break;   
+		    }
 		}
-	
 	}
 	else if (num_nom == 2)
 	{
 		if(jom == 1)
 		{
-			for(int a=0;a<cont;a++)
+			for(int a=1;a<cont;a++)
+                {
+                	if(nom2[a] == 65 || nom2[a]==69 || nom2[a]==73 || nom2[a]==79 || nom2[a]==85)
+                    {
+                    }
+                	else
                 	{
-                	if(nom2[a] != 65 || nom2[a]!=69 || nom2[a]!=73 || nom2[a]!=79 || nom2[a]!=85)
-                        	{
-                        	CURP[15] = nom2[a];
+                	    CURP[15] = nom2[a];
+                        	printf("%c \n", CURP[15]);
                         	break;
-                        	}
                 	}
+                }
 		}
 		else
 		{
-			for(int a=0;a<cont;a++)
+			for(int a=1;a<cont;a++)
                 {
-                if(nom1[a] != 65 || nom1[a]!=69 || nom1[a]!=73 || nom1[a]!=79 || nom1[a]!=85)
+                if(nom1[a] == 65 || nom1[a]==69 || nom1[a]==73 || nom1[a]==79 || nom1[a]==85)
+                        {}
+                        else
                         {
-                        CURP[15] = nom1[a];
-                        break;
+                            CURP[15] = nom1[a];
+                            printf("%c \n", CURP[15]);
+                            break;
                         }
                 }
 		}
 	}
+	
 printf("%s \n",CURP);
 }
