@@ -10,7 +10,7 @@ void main (void)
 	int num_nom=0;
 	char nom1[TAM_MAX], nom2[TAM_MAX], c = 0;
 	char ap_pat[TAM_MAX], ap_mat[TAM_MAX], dia[TAM_MD], mes[TAM_MD];
-	char year[TAM_AN], sexo[TAM_SE], estado[TAM_MAX], estado_le[TAM_MD];
+	char year[TAM_AN], sexo[TAM_SE], estado[TAM_MAX], estado_le[2];
   	char numero=165;
 	printf("%c\n",numero);
 	printf("Bienvenido al sistema de captura de datos para CURP\n");
@@ -262,7 +262,7 @@ printf("Ahora introducirá el estado donde nació \n");
 			if (estado[a]>=65 && estado[a]<=90)
 			{
 			cont5++;
-			printf("%d \n", cont5);
+			/*printf("%d \n", cont5);*/
 			}
 			else if(estado[a]>= 97 && estado[a]<= 122)
 			{		
@@ -282,137 +282,171 @@ printf("Ahora introducirá el estado donde nació \n");
 	{
 		estado_nuevo[g] = estado[g];
 	}
+printf("%s \n", estado_nuevo);
+
 	/*ENCONTRAR LA ABREVIACIÓN DEL ESTADO*/
-	if(estado_nuevo == 'AGUASCALIENTES')
+	if(estado_nuevo == "AGUASCALIENTES")
 	{
-		estado_le[TAM_MD] = {65,83};
+		estado_le[0] = 65;
+		estado_le[1] = 83;
 	}	
-	else if(estado_nuevo == 'BAJACALIFORNIA')
+	else if(estado_nuevo == "BAJACALIFORNIA")
 	{
-		estado_le[TAM_MD] = {66,67};
+		estado_le[0] = 66;
+		estado_le[1] = 67;
 	}
-	else if(estado_nuevo == 'BAJACALIFORNASUR')
+	else if(estado_nuevo == "BAJACALIFORNASUR")
 	{
-		estado_le[TAM_MD] = {66,83};
+		estado_le[0] = 66;
+		estado_le[1] = 83;
 	}	
-	else if(estado_nuevo =='CAMPECHE')
+	else if(estado_nuevo =="CAMPECHE")
 	{
-		estado_le[TAM_MD] = {67,67};
+		estado_le[0] = 67;
+		estado_le[1] = 67;
 	}
-	else if(estado_nuevo =='COAHUILA')
+	else if(estado_nuevo =="COAHUILA")
 	{
-		estado_le[TAM_MD] = {67,76};
+		estado_le[0] = 67;
+		estado_le[1] = 76;
 	}	
-	else if(estado_nuevo =='COLIMA')
+	else if(estado_nuevo == "COLIMA")
 	{
-		estado_le[TAM_MD] = {67,77};
+		estado_le[0] = 67;
+		estado_le[1] = 77;
 	}
-	else if(estado_nuevo == 'CHIAPAS')
+	else if(estado_nuevo == "CHIAPAS")
 	{
-		estado_le[TAM_MD] = {67,83};
+		estado_le[0] = 67;
+		estado_le[1] = 83;
 	}	
-	else if(estado_nuevo =='CHIHUAHUA')
+	else if(estado_nuevo == "CHIHUAHUA")
 	{
-		estado_le[TAM_MD] = {65,72};
+		estado_le[0] = 65;
+		estado_le[1] = 72;
 	}	
-	else if(estado_nuevo =="DISTRITOFEDERAL")
+	else if(estado_nuevo == "DISTRITOFEDERAL")
 	{
-		estado_le[TAM_MD] = {68,70};
+		estado_le[0] = 68;
+		estado_le[1] = 70;
 	}
-	else if(estado_nuevo =='DURANGO')
+	else if(estado_nuevo == "DURANGO")
 	{
-		estado_le[TAM_MD] = {68,71};
+		estado_le[0] = 68;
+		estado_le[1] = 71;
 	}	
-	else if(estado_nuevo =='GUANAJUATO')
+	else if(estado_nuevo == "GUANAJUATO")
 	{
-		estado_le[TAM_MD] = {71,84};
+		estado_le[0] = 71;
+		estado_le[1] = 84;
 	}	
-	else if(estado_nuevo =='GUERRERO')
+	else if(estado_nuevo == "GUERRERO")
 	{
-		estado_le[TAM_MD] = {71,82};
+		estado_le[0] = 71;
+		estado_le[1] = 82;
 	}	
-	else if(estado_nuevo =='HIDALGO')
+	else if(estado_nuevo == "HIDALGO")
 	{
-		estado_le[TAM_MD] = {72,71};
+		estado_le[0] = 72;
+		estado_le[1] = 71;
 	}	
-	else if(estado_nuevo =='JALISCO')
+	else if(estado_nuevo == "JALISCO")
 	{
-		estado_le[TAM_MD] = {74,67};
+		estado_le[0] = 74;
+		estado_le[1] = 67;
 	}	
-	else if(estado_nuevo == 'MEXICO')
+	else if(estado_nuevo == "MEXICO")
 	{
-		estado_le[TAM_MD] = {77,67};
+		estado_le[0] = 77;
+		estado_le[1] = 67;
 	}	
-	else if(estado_nuevo =='MICHOACAN')
+	else if(estado_nuevo == "MICHOACAN")
 	{
-		estado_le[TAM_MD] = {77,78};
+		estado_le[0] = 77;
+		estado_le[1] = 78;
 	}
-	else if(estado_nuevo == 'MORELOS')	
+	else if(estado_nuevo == "MORELOS")	
 	{	
-		estado_le[TAM_MD] = {77,83};
+		estado_le[0] = 77;
+		estado_le[1] = 83;
 	}
-	else if(estado_nuevo == 'NAYARIT')
+	else if(estado_nuevo == "NAYARIT")
 	{
-		estado_le[TAM_MD] = {78,84};
+		estado_le[0] = 78;
+		estado_le[1] = 84;
 	}
-	else if(estado_nuevo == 'NUEVOLEON')
+	else if(estado_nuevo == "NUEVOLEON")
 	{
-		estado_le[TAM_MD] = {78,76};
+		estado_le[0] = 78;
+		estado_le[1] = 76;
 	}
-	else if(estado_nuevo == 'OAXACA')
+	else if(estado_nuevo == "OAXACA")
 	{
-		estado_le[TAM_MD] = {79,67};
+		estado_le[0] = 79;
+		estado_le[1] = 67;
 	}
-	else if(estado_nuevo == 'PUEBLA')
+	else if(estado_nuevo == "PUEBLA")
 	{
-		estado_le[TAM_MD] = {80,76};
+		estado_le[0] = 80;
+		estado_le[1] = 76;
 	}
-	else if(estado_nuevo == 'QUERETARO')
+	else if(estado_nuevo == "QUERETARO")
 	{
-		estado_le[TAM_MD] = {81,84};
+		estado_le[0] = 81;
+		estado_le[1] = 84;
 	}
-	else if(estado_nuevo == 'QUINTANAROO')
+	else if(estado_nuevo == "QUINTANAROO")
 	{
-		estado_le[TAM_MD] = {81,82};
+		estado_le[0] = 81;
+		estado_le[1] = 82;
 	}
-	else if(estado_nuevo == 'SANLUISPOTOSI')
+	else if(estado_nuevo == "SANLUISPOTOSI")
 	{
-		estado_le[TAM_MD] = {83,80};
+		estado_le[0] = 83;
+		estado_le[1] = 80;
 	}
-	else if(estado_nuevo == 'SINALOA')	
+	else if(estado_nuevo == "SINALOA")	
 	{
-		estado_le[TAM_MD] = {83,76};
+		estado_le[0] = 83;
+		estado_le[1] = 76;
 	}
-	else if(estado_nuevo == 'SONORA')
+	else if(estado_nuevo == "SONORA")
 	{
-		estado_le[TAM_MD] = {83,82};
+		estado_le[0] = 83;
+		estado_le[1] = 82;
 	}
-	else if(estado_nuevo == 'TABASCO')
+	else if(estado_nuevo == "TABASCO")
 	{
-		estado_le[TAM_MD] = {84,67};
+		estado_le[0] = 84;
+		estado_le[1] = 67;
 	}
-	else if(estado_nuevo == 'TAMAULIPAS)
+	else if(estado_nuevo == "TAMAULIPAS")
 	{
-		estado_le[TAM_MD] = {84,83};
+		estado_le[0] = 84;
+		estado_le[1] = 83;
 	}
-	else if(estado_nuevo == 'TLAXCALA')		
+	else if(estado_nuevo == "TLAXCALA")		
 	{
-		estado_le[TAM_MD] = {84,76};
+		estado_le[0] = 84;
+		estado_le[1] = 76;
 	}
-	else if(estado_nuevo == 'VERACRUZ')		
+	else if(estado_nuevo == "VERACRUZ")		
 	{
-		estado_le[TAM_MD] = {86,90};
+		estado_le[0] = 86;
+		estado_le[1] = 90;
 	}
-	else if(estado_nuevo == 'YUCATAN')
+	else if(estado_nuevo == "YUCATAN")
 	{
-		estado_le[TAM_MD] = {88,78};
+		estado_le[0] = 88;
+		estado_le[1] = 78;
 	}
-	else if(estado_nuevo == 'ZACATECAS')
+	else if(estado_nuevo == "ZACATECAS")
 	{
-		estado_le[TAM_MD] = {90,83};
+		estado_le[0] = 90;
+		estado_le[1] = 83;
 	}
 	else{
-		printf("No existe tu datos \n");
+		printf("No existe ese estado \n");
 	}
 char CURP[14]; 
 }
