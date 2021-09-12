@@ -11,7 +11,7 @@ void main (void)
 	char nom1[TAM_MAX], nom2[TAM_MAX], c = 0;
 	char ap_pat[TAM_MAX], ap_mat[TAM_MAX], dia[TAM_MD], mes[TAM_MD];
 	char year[TAM_AN], sexo[TAM_SE], estado_le[TAM_MD];
-	int cont = 0, cont2=0;
+	int cont=0, cont2=0, cont1=0;
 	printf("Bienvenido al sistema de captura de datos para CURP\n");
 	printf("¿Cuántos nombres tienes? (1 o 2):\n");
 	scanf("%d", &num_nom);
@@ -53,18 +53,17 @@ void main (void)
   {
 	printf("Tu primer nombre es Jose o María (1 sí, 2 no)?\n");
 	scanf("%d", &jom);
-	int cont = 0;
 	do
 	{
  /*CONOCER EL NUMERO DE CARACTERES QUE TIENEN LOS NOMBRES Y VERIFICAR QUE ESTÉ EN MAYÚSUCULAS*/
 	printf("Por favor introduce tu primer nombre en mayúsculas:\n");
 	scanf("%s", nom1);
-	cont = 0;
+	cont1 = 0;
 	for(int a = 0; a<=TAM_MAX; a++)
 	{
 		if (nom1[a]>=65 && nom1[a]<=90)
 		{
-			cont++;
+			cont1++;
 			/*printf("%d \n", cont);*/
 		}
 		else if(nom1[a]>= 97 && nom1[a]<= 122 || nom1[a]==164)
@@ -80,7 +79,7 @@ void main (void)
 	 }
   	} while(c==0);
 printf("%s \n",nom1);
- printf("%d \n", cont);
+ printf("%d \n", cont1);
 	
 	c = 0;
 	
@@ -263,39 +262,6 @@ do
 		printf("Letra no válida, vuelva a intentarlo. \n");
 	}
 }while(e==0);
-/*ESTADO DONDE NACIÓ*/
-/*printf("Ahora introducirá el estado donde nació \n");
-	do
-	{
-		printf("Introduzca en mayúsculas el estado donde nació (omita los espacios y acentos) \n");
-		scanf("%s", estado);
-		cont5 = 0;
-		for(int a = 0; a<=TAM_MAX; a++)
-		{
-			if (estado[a]>=65 && estado[a]<=90)
-			{
-			cont5++;
-			printf("%d \n", cont5);
-			}
-			else if(estado[a]>= 97 && estado[a]<= 122)
-			{		
-		 	printf("El estado no está completamente en mayúsculas\n");
-		 	break;
-			}
-			else
-			{
-		 	f++;
-		 	break;
-			}
-		}
-	}while(f==0);*/
-/*NUEVA VARIABLE CON EL NOMBRE DEL ESTADO
-	char estado_nuevo[cont5];
-	for(int g = 0; g < cont5; g++)
-	{
-		estado_nuevo[g] = estado[g];
-	}
-printf("%s \n", estado_nuevo);*/
 
 /*ENCONTRAR LA ABREVIACIÓN DEL ESTADO*/
 	int choice = 0;
@@ -441,6 +407,7 @@ printf("%s \n", estado_nuevo);*/
 	printf("%d \n",cont2);
 	printf("%d \n",cont3);
 	printf("%d \n",cont4);
+	printf("%d \n", jom);
 /*CURP*/	
 char CURP[16]; 
 CURP[0]= ap_pat[0];
@@ -519,11 +486,10 @@ CURP[12]= estado_le[1];
 		    }
 		}
 	}
-	else if (num_nom == 2)
+	
+	if (num_nom == 2 && jom == 1 )
 	{
-		if(jom == 1)
-		{
-			for(int a=1;a<cont;a++)
+			for(int a=1;a<cont1;a++)
                 {
                 	if(nom2[a] == 65 || nom2[a]==69 || nom2[a]==73 || nom2[a]==79 || nom2[a]==85)
                     {
@@ -535,10 +501,10 @@ CURP[12]= estado_le[1];
                         	break;
                 	}
                 }
-		}
-		else
+	}
+    if (num_nom == 2 && jom == 2)
 		{
-			for(int a=1;a<cont;a++)
+			for(int a=1; a<cont1; a++)
                 {
                 if(nom1[a] == 65 || nom1[a]==69 || nom1[a]==73 || nom1[a]==79 || nom1[a]==85)
                         {}
@@ -550,7 +516,6 @@ CURP[12]= estado_le[1];
                         }
                 }
 		}
-	}
 	
-printf("Su CURP es: %s \n ",CURP);
+printf("%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c%c \n",CURP[0],CURP[1],CURP[2],CURP[3],CURP[4],CURP[5],CURP[6],CURP[7],CURP[8],CURP[9],CURP[10],CURP[11],CURP[12],CURP[13],CURP[14],CURP[15]);
 }
