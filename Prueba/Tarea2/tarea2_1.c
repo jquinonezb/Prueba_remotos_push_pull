@@ -285,168 +285,176 @@ printf("Ahora introducirá el estado donde nació \n");
 printf("%s \n", estado_nuevo);
 
 	/*ENCONTRAR LA ABREVIACIÓN DEL ESTADO*/
-	if(estado_nuevo == "AGUASCALIENTES")
+	int choice = 0;
+	printf("A continuación se mostrará una lista de los estados de la República, elige el tuyo \n
+"1 AGUASCALIENTES\n"
+"2 BAJACALIFORNIA\n"
+"3 BAJACALIFORNASUR\n"
+"4 CAMPECHE\n"
+"5 COAHUILA\n"
+"6 COLIMA\n"
+"7 CHIAPAS\n"
+"8 CHIHUAHUA\n"
+"9 DISTRITOFEDERAL\n"
+"10 DURANGO\n"
+"11 GUANAJUATO\n"
+"12 GUERRERO\n"
+"13 HIDALGO\n"
+"14 JALISCO\n"
+"15 MEXICO\n"
+"16 MICHOACAN\n"
+"17 MORELOS\n"
+"18 NAYARIT\n"
+"19 NUEVOLEON\n"
+"20 OAXACA\n"
+"21 PUEBLA\n"
+"22 QUERETARO\n"
+"23 QUINTANAROO\n"
+"24 SANLUISPOTOSI\n"
+"25 SINALOA\n"
+"26 SONORA\n"
+"27 TABASCO\n"
+"28 TAMAULIPAS\n"
+"29 TLAXCALA\n"
+"30 VERACRUZ\n"
+"31 YUCATAN\n"
+"32 ZACATECAS\n");
+	
+	scanf("%d", choice);
+	switch(choice)
 	{
+	case 1:
 		estado_le[0] = 65;
 		estado_le[1] = 83;
-	}	
-	else if(estado_nuevo == "BAJACALIFORNIA")
-	{
+		break;
+	case 2:	
 		estado_le[0] = 66;
 		estado_le[1] = 67;
-	}
-	else if(estado_nuevo == "BAJACALIFORNASUR")
-	{
+		break;
+	
+	case 3:
 		estado_le[0] = 66;
 		estado_le[1] = 83;
-	}	
-	else if(estado_nuevo =="CAMPECHE")
-	{
+		break;	
+	
+	case 4:
 		estado_le[0] = 67;
 		estado_le[1] = 67;
-	}
-	else if(estado_nuevo =="COAHUILA")
-	{
+		break;
+	case 5:
 		estado_le[0] = 67;
 		estado_le[1] = 76;
-	}	
-	else if(estado_nuevo == "COLIMA")
-	{
+		break;
+	case 6:
 		estado_le[0] = 67;
 		estado_le[1] = 77;
-	}
-	else if(estado_nuevo == "CHIAPAS")
-	{
+		break;
+	case 7:
 		estado_le[0] = 67;
 		estado_le[1] = 83;
-	}	
-	else if(estado_nuevo == "CHIHUAHUA")
-	{
+		break;
+	case 8:
 		estado_le[0] = 65;
 		estado_le[1] = 72;
-	}	
-	else if(estado_nuevo == "DISTRITOFEDERAL")
-	{
+		break;
+	case 9:
 		estado_le[0] = 68;
 		estado_le[1] = 70;
-	}
-	else if(estado_nuevo == "DURANGO")
-	{
+		break;
+	case 10:
 		estado_le[0] = 68;
 		estado_le[1] = 71;
-	}	
-	else if(estado_nuevo == "GUANAJUATO")
-	{
+		break;
+	case 11:
 		estado_le[0] = 71;
 		estado_le[1] = 84;
-	}	
-	else if(estado_nuevo == "GUERRERO")
-	{
+		break;
+	case 12:
 		estado_le[0] = 71;
 		estado_le[1] = 82;
-	}	
-	else if(estado_nuevo == "HIDALGO")
-	{
+		break;
+	case 13:
 		estado_le[0] = 72;
 		estado_le[1] = 71;
-	}	
-	else if(estado_nuevo == "JALISCO")
-	{
+		break;
+	case 14:
 		estado_le[0] = 74;
 		estado_le[1] = 67;
-	}	
-	else if(estado_nuevo == "MEXICO")
-	{
+		break;
+	case 15:
 		estado_le[0] = 77;
 		estado_le[1] = 67;
-	}	
-	else if(estado_nuevo == "MICHOACAN")
-	{
+		break;
+	case 16:
 		estado_le[0] = 77;
 		estado_le[1] = 78;
-	}
-	else if(estado_nuevo == "MORELOS")	
-	{	
+		break;
+	case 17:
+
 		estado_le[0] = 77;
-		estado_le[1] = 83;
-	}
-	else if(estado_nuevo == "NAYARIT")
-	{
+		estado_le[1] = 83;	
+		break;	
+	case 18:
 		estado_le[0] = 78;
 		estado_le[1] = 84;
-	}
-	else if(estado_nuevo == "NUEVOLEON")
-	{
+		break;
+	case 19:
 		estado_le[0] = 78;
 		estado_le[1] = 76;
-	}
-	else if(estado_nuevo == "OAXACA")
-	{
+		break;
+	case 20:
 		estado_le[0] = 79;
 		estado_le[1] = 67;
-	}
-	else if(estado_nuevo == "PUEBLA")
-	{
+		break;
+	case 21:
 		estado_le[0] = 80;
 		estado_le[1] = 76;
-	}
-	else if(estado_nuevo == "QUERETARO")
-	{
+		break;
+	case 22:
 		estado_le[0] = 81;
 		estado_le[1] = 84;
-	}
-	else if(estado_nuevo == "QUINTANAROO")
-	{
+		break;
+	case 23:
 		estado_le[0] = 81;
 		estado_le[1] = 82;
-	}
-	else if(estado_nuevo == "SANLUISPOTOSI")
-	{
+		break;
+	case 24:
 		estado_le[0] = 83;
 		estado_le[1] = 80;
-	}
-	else if(estado_nuevo == "SINALOA")	
-	{
+		break;
+	case 25:	
 		estado_le[0] = 83;
 		estado_le[1] = 76;
-	}
-	else if(estado_nuevo == "SONORA")
-	{
+		break;
+	case 26:
 		estado_le[0] = 83;
 		estado_le[1] = 82;
-	}
-	else if(estado_nuevo == "TABASCO")
-	{
+		break;
+	case 27:
 		estado_le[0] = 84;
 		estado_le[1] = 67;
-	}
-	else if(estado_nuevo == "TAMAULIPAS")
-	{
+		break;
+	case 28:
 		estado_le[0] = 84;
 		estado_le[1] = 83;
-	}
-	else if(estado_nuevo == "TLAXCALA")		
-	{
+		break;
+	case 29:	
 		estado_le[0] = 84;
 		estado_le[1] = 76;
-	}
-	else if(estado_nuevo == "VERACRUZ")		
-	{
+		break;
+	case 30:	
 		estado_le[0] = 86;
 		estado_le[1] = 90;
-	}
-	else if(estado_nuevo == "YUCATAN")
-	{
+		break;
+	case 31:
 		estado_le[0] = 88;
 		estado_le[1] = 78;
-	}
-	else if(estado_nuevo == "ZACATECAS")
-	{
+		break;
+	case 32:
 		estado_le[0] = 90;
 		estado_le[1] = 83;
+		break;
 	}
-	else{
-		printf("No existe ese estado \n");
-	}
+	printf("%s", estado_le);
 char CURP[14]; 
 }
