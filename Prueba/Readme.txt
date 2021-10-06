@@ -33,7 +33,12 @@ uint64_t ceiling(uint64_t x)
     return (res);
 }
 
-uint32_t rotl(uint64_t val, uint32_t pos) /* Función que haces los corrimientos de los vectores */
+/* Función que hace los corrimientos de los vectores. Este paso utiliza una tabla de 64 elementos, T[1..64], construída a
+   partir de la función seno. Supongamos que T[i] es el elemento i-ésimo
+   de la tabla, que es igual a la parte entera del resultado de
+   multiplicar 4294967296 veces abs(sin(i)), estando i expresado en
+   radianes. Los elementos de la tabla se adjuntan en el apéndice. */
+uint32_t rotl(uint64_t val, uint32_t pos) 
 {
     uint32_t res = val % 4294967296;
     return ((res << pos) | (res >> (sizeof(uint32_t) * CHAR_BIT - pos)));
@@ -125,23 +130,24 @@ void main(int argc, char *argv[])
     }
     strtok(b, " \n"); //ELIMINA EL FIN DEL ARCHIVO 
     int i;
+    /* ALMACENAR EL MENSAJE EN UN PUNTERO Y SU TAMAÑO */ 
     uint8_t *message = b;
     uint64_t MsgLength = strlen(message);
     printf("Input string:\n%s\n", message);
 
-    /*message padding*/
-    uint64_t NumBlocks = (MsgLength * sizeof(uint8_t) * CHAR_BIT) + 64;
-    NumBlocks = (NumBlocks % TotalBits == 0) ? ceiling(NumBlocks) + 1 : ceiling(NumBlocks);
-    uint8_t *OldMsg = (uint8_t *)calloc((TotalOctets * NumBlocks), sizeof(uint8_t));
+    /* RELLENO DEL MENSAJE */
+    uint64_t NumBlocks = (MsgLength * sizeof(uint8_t) * CHAR_BIT) + 64; // Construccion de los bloques de palabras para múltiplos de 512 bits
+    NumBlocks = (NumBlocks % TotalBits == 0) ? ceiling(NumBlocks) + 1 : ceiling(NumBlocks); // Determina el número de bloques
+    uint8_t *OldMsg = (uint8_t *)calloc((TotalOctets * NumBlocks), sizeof(uint8_t)); // Se asigna un mismo tamaño de bytes a OldMsg
     strcpy(OldMsg, message);
-    OldMsg[MsgLength] = 0x80;
-    MsgLength = strlen(message) * sizeof(uint8_t) * CHAR_BIT;
+    OldMsg[MsgLength] = 0x80; // SE ASIGNA EL 1 DEL RELLENO 
+    MsgLength = strlen(message) * sizeof(uint8_t) * CHAR_BIT; 
     for (i = 0; i < 8; i++)
     {
         OldMsg[TotalOctets * NumBlocks - 8 + i] = (MsgLength >> (i * 8)) & 0xff;
     }
 
-    /*converting to 32 bit array*/
+    /* SEPARACIÓN DEL MENSAJE EN ARREGLOS DE 32 BITS */
     MsgLength = TotalOctets * NumBlocks * CHAR_BIT / WordSize;
     uint32_t *PaddedMsg = (uint32_t *)calloc(MsgLength, sizeof(uint32_t));
     int j;
@@ -153,14 +159,15 @@ void main(int argc, char *argv[])
         PaddedMsg[i] = (PaddedMsg[i] << 8) | OldMsg[j];
     }
 
-    /*initialize variables*/
-    uint32_t digest[4] = {0x67452301, 0xefcdab89, 0x98badcfe, 0x10325476};
+    /* INICIALIZA LAS VARIABLES DE ACUERDO AL ESTÁNDAR RFC1321
+    VECTORES: A,B,C,D */
+    uint32_t digest[4] = {0x67452301, 0xefcdab89, 0x98badcfe, 0x10325476}; 
     uint32_t dd[4] = {0x00000000, 0x00000000, 0x00000000, 0x00000000};
 
-    /*digest 16 words at a time*/
+    /* SE REALIZAN LAS OPERACIONES DE LA FUNCION DIGEST DE CADA UNA DE LAS 4 VUELTAS*/
     for (i = 0; i < MsgLength; i += 16)
     {
-        /*get previous result*/
+        /* VALORES PREVIOS */
         dd[0] = digest[0];
         dd[1] = digest[1];
         dd[2] = digest[2];
@@ -171,13 +178,16 @@ void main(int argc, char *argv[])
             CurrentBlock[j] = PaddedMsg[j + i];
         }
         compute_digest(digest, CurrentBlock);
-
+        
+        /* SE ACTUALIZA CADA VALOR EN CADA VUELTA QUE SE HACE EN LA FUNCIÓN COMPUTE_DIGEST */
         digest[0] += dd[0];
         digest[1] += dd[1];
         digest[2] += dd[2];
         digest[3] += dd[3];
-
+        /* SE CIERRA EL ARCHIVO QUE SE MANDÓ LLAMAR */ 
         fclose(a);
+        
+        /* IMPRIME EL VALOR FINAL DEL HASH EN 32 BITS, QUE ES LA SUMA DE LOS 4 VECTORES RESULTANTES */ 
          printf("Hash:\n%" PRIx32 "%" PRIx32 "%" PRIx32 "%" PRIx32 "\n", digest[0], digest[1], digest[2], digest[3]);
 }
     }
